@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="micro-ROS bridge"><g fill="none" stroke="#7FAFB3" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="9" width="7" height="14" rx="2" />
+        <rect x="22" y="9" width="7" height="14" rx="2" />
+        <path d="M11 12H21M18 9L21 12L18 15M21 20H11M14 17L11 20L14 23" />
+      </g></svg>

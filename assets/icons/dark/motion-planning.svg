@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Motion planning"><g fill="none" stroke="#999DCD" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 26H29M5 23H11V15H18V9H28" />
+        <circle cx="10" cy="8" r="5" />
+        <path d="M10 5V8L13 10" />
+      </g></svg>

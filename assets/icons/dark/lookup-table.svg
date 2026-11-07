@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Lookup table"><g fill="none" stroke="#C6A983" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="5" width="24" height="22" rx="2" />
+        <path d="M4 12H28M4 19H28M12 5V27M20 5V27M2 15L5 17L2 19" />
+        <path d="M12 16H20" stroke-width="2.2" />
+      </g></svg>

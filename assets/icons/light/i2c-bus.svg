@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="I²C bus"><g fill="none" stroke="#176E76" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9H29M3 23H29M9 9V13M13 19V23M22 9V13M26 19V23" />
+        <rect x="6" y="13" width="10" height="6" rx="1" />
+        <rect x="20" y="13" width="9" height="6" rx="1" />
+      </g></svg>

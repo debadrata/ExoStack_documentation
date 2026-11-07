@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="ESA"><g fill="none" stroke="#176E76" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="8" y="8" width="16" height="16" rx="3" />
+        <path d="M12 3V8M20 3V8M12 24V29M20 24V29M3 12H8M24 20H29M3 20H8M24 12H29" />
+        <path d="M11 16H14L16 12L18 20L20 16H22" />
+      </g></svg>

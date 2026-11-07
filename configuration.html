@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Configuration · ExoStack</title>
+<meta name="description" content="A complete setup is six small files that refer to each other by name. Configure them left to right; each one uses names defined by the one before it.">
+<meta property="og:title" content="Configuration · ExoStack">
+<meta property="og:description" content="A complete setup is six small files that refer to each other by name. Configure them left to right; each one uses names defined by the one before it.">
+<meta property="og:image" content="images/social_preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#070d1a">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/space-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css">
+<script>(function(){try{var t=localStorage.getItem('exostack-theme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+</head><body class="docs-page"><header class="site-header"><div class="inner">
+<a class="brand" href="index.html"><img class="logo-l" src="assets/img/logo.svg" alt=""><img class="logo-d" src="assets/img/logo-dark.svg" alt=""><span>Exo<span class="stack">Stack</span></span></a>
+<nav class="nav"><a href="overview.html" class="active">Docs</a><a href="getting-started.html">Get started</a><a href="ros2-interfaces.html">ROS 2 API</a><a href="hardware.html">Hardware</a><a href="research.html">Paper</a><a href="about.html">About</a></nav>
+<div class="header-actions">
+<button class="icon-btn search-btn" type="button" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class="lbl">Search docs</span><kbd>⌘K</kbd></button>
+<button class="icon-btn theme-btn" type="button" aria-label="Toggle dark mode"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+<a class="icon-btn" href="https://github.com/debadrata/ExoStack" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg><span class="lbl">GitHub</span></a>
+<button class="icon-btn menu-btn" type="button" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div></div></header>
+<div class="docs">
+<aside class="sidebar"><h6>Introduction</h6><a href="overview.html">How ExoStack works</a><h6>Get started</h6><a href="getting-started.html">Installation</a><a href="running.html">Running the stack</a><h6>Configure</h6><a href="configuration.html" class="active">Configuration</a><a href="gui.html">PASE GUI</a><h6>Extend</h6><a href="extend-esa.html">ESA drivers</a><a href="extend-exocore.html">ExoCore plug-ins</a><h6>ROS 2 interfaces</h6><a href="ros2-interfaces.html">ROS 2 interfaces</a><a href="if-esa.html">ESA hubs</a><a href="if-sync.html">Synchronizer</a><a href="if-detector.html">Gait-event detector</a><a href="if-profile.html">Profile node</a><a href="if-planner.html">Motion planner</a><a href="if-cost.html">Cost evaluator</a><a href="if-hil.html">HIL optimizer</a><a href="if-external.html">External inputs</a><a href="ros2-messages.html">Message layouts</a><h6>Reference</h6><a href="reference.html">API & reference</a><h6>Project</h6><a href="hardware.html">Validated hardware</a><a href="research.html">Paper & citation</a><a href="about.html">Team & contact</a></aside>
+<main class="content"><article class="article">
+<div class="crumbs"><a href="index.html">ExoStack</a> / Configure</div>
+<h1>Configuration</h1><p class="page-lead">A complete setup is six small files that refer to each other by name. Configure them left to right; each one uses names defined by the one before it.</p>
+
+
+<div class="flow">ESA sketch ──► sensors.yaml ──► gait_events.yaml ──► mplanner.yaml ──► profile.yaml ◄── lookup_table/*.json
+ (per board)     (hubs, channels)    (event detectors)    (planners)        (profile source, cost, HIL)</div>
+<div class="table-wrap"><table class="t"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><tr><th>This value …</th><th>… must equal this value</th></tr><tr><td>sketch <code>setupPublisher(<b>topic</b>, …)</code></td><td><code>sensors.yaml → hubs.&lt;hub&gt;.topic</code></td></tr><tr><td>order and count of channels the board publishes</td><td>order and count of names in <code>hubs.&lt;hub&gt;.sensors</code></td></tr><tr><td><code>gait_events.yaml → &lt;event&gt;.output_topic</code></td><td><code>mplanner.yaml → &lt;planner&gt;.gait_event_topic</code></td></tr><tr><td><code>mplanner.yaml</code> planner key</td><td><code>profile.yaml → &lt;profile&gt;.planner_name</code></td></tr><tr><td><code>mplanner.yaml → &lt;planner&gt;.output_topic</code></td><td>sketch <code>setupActuation(<b>topic</b>, …)</code> on the actuation board</td></tr><tr><td>algorithm names in any YAML</td><td>a file of that name (and a class of the same name) in its plug-in folder</td></tr></table></div>
+
+<h2 id="a-esa-sketch-sensing-hub">A. ESA sketch: sensing hub</h2>
+<p>A board is <i>declared</i>, not programmed: list the devices, then call the set-up functions in the order shown.
+Highlighted values are the ones you change.</p>
+<div class="cb"><div class="codehead">hub_right.ino</div><pre class="code">#include "ESA.h"
+SoftExoWalk exo;
+
+DeviceConfig deviceList[] = {
+<span class="cm">//  type       addr/pin   name       extra_info1     misc1         misc2</span>
+  { <span class="chg">I2C<sup>1</sup></span>, <span class="chg">0x4A<sup>2</sup></span>, <span class="chg">"IMU_T"<sup>3</sup></span>, <span class="chg">MAIN<sup>4</sup></span>,   <span class="chg">9<sup>5</sup></span> },                 <span class="cm">// thigh IMU, 9 channels</span>
+  { I2C,       0x4A,       "IMU_S",       AUX1,         9 },                       <span class="cm">// shank IMU (same address, 2nd bus)</span>
+  { I2C,       0x2A,       "LC_F",        MAIN,        -0.0243f,  -299.094f },     <span class="cm">// load cell: slope, offset</span>
+  { I2C,       0x2A,       "LC_E",        AUX1,        -0.0242f,  -299.096f },
+  { AI,        34,         "FSR",         MEDIAN,       3 },                       <span class="cm">// median filter, window 3</span>
+};
+const size_t deviceList_len = sizeof(deviceList) / sizeof(deviceList[0]);
+
+void setup() {
+  exo.setupCommunication("wifi", <span class="chg">"SSID", "PASSWORD", "192.168.1.10", 8888<sup>6</sup></span>);   <span class="cm">// or: setupCommunication("usb")</span>
+  if (exo.initializeSystem()) {
+    exo.setupNode(<span class="chg">"hub_right_node"<sup>7</sup></span>);
+    exo.setupPublisher(<span class="chg">"/hub_right"<sup>8</sup></span>, <span class="chg">100<sup>9</sup></span>);                                     <span class="cm">// topic, rate in Hz</span>
+    exo.bootSystem();                                                                    <span class="cm">// always last</span>
+  }
+}
+
+void loop() {
+  exo.readSensorsData();
+  exo.publish(true);                       <span class="cm">// true: rebuild the link automatically if the agent restarts</span>
+}</pre></div><table class="legend"><tr><td class="k"><span class="mk">1</span></td><td>device type: <code>AI</code>, <code>DI</code> or <code>I2C</code></td></tr><tr><td class="k"><span class="mk">2</span></td><td>GPIO pin (AI, DI) or 7-bit address (I²C)</td></tr><tr><td class="k"><span class="mk">3</span></td><td>short label for your reference</td></tr><tr><td class="k"><span class="mk">4</span></td><td>meaning depends on the type: see the table below</td></tr><tr><td class="k"><span class="mk">5</span></td><td>misc1 / misc2: meaning depends on the type and driver</td></tr><tr><td class="k"><span class="mk">6</span></td><td>Wi-Fi network, password, IP address of the host running the agent, UDP port</td></tr><tr><td class="k"><span class="mk">7</span></td><td>ROS 2 node name of this board (unique per board)</td></tr><tr><td class="k"><span class="mk">8</span></td><td>topic name: must equal <code>hubs.&lt;hub&gt;.topic</code> in <code>sensors.yaml</code></td></tr><tr><td class="k"><span class="mk">9</span></td><td>publication rate (Hz); also the sampling rate used to design the analog filters</td></tr></table>
+<h3 id="what-each-field-of-a-device-row-means">What each field of a device row means</h3>
+<div class="pt-block" id="table-s1"><div class="tcap"><b>Table S1.</b> Device descriptor. One row of <code>deviceList[]</code> declares one device. The same seven fields serve every device type; four of them are read according to the type.</div><table class="pt"><colgroup><col style="width:18%"><col style="width:30%"><col style="width:22%"><col style="width:30%"></colgroup><thead><tr><th class="pt-f">Field</th><th class="pt-c" style="border-bottom-color:#2563EB">Analog input <span class="pt-code">AI</span></th><th class="pt-c" style="border-bottom-color:#B45309">Digital input <span class="pt-code">DI</span></th><th class="pt-c" style="border-bottom-color:#0F766E">I²C device <span class="pt-code">I2C</span></th></tr></thead><tbody><tr class=""><th scope="row" class="pt-f"><code>IP_type</code><span class="pt-sub">device type</span></th><td><code>AI</code></td><td><code>DI</code></td><td><code>I2C</code></td></tr><tr class=""><th scope="row" class="pt-f"><code>pin_or_address</code><span class="pt-sub">where it is connected</span></th><td>ADC pin; GPIO 32–39 (ADC1) when the board uses Wi-Fi</td><td>GPIO pin</td><td>7-bit address of the chip, e.g. <code>0x4A</code></td></tr><tr class=""><th scope="row" class="pt-f"><code>name</code><span class="pt-sub">label</span></th><td colspan="3">Short label for your reference, e.g. <code>&quot;FSR&quot;</code>, <code>&quot;HEEL&quot;</code>, <code>&quot;IMU_T&quot;</code></td></tr><tr class=""><th scope="row" class="pt-f"><code>extra_info1</code><span class="pt-sub">option</span></th><td><b>Filter:</b> <code>FILTER_NONE</code> <span class="mut">(default)</span>, <code>MOV_AVG</code>, <code>MEDIAN</code>, <code>EXPONENTIAL</code>, <code>BUTTER2_LPF</code>, <code>BUTTER2_HPF</code>, <code>BUTTER2_BPF</code>, <code>BUTTER2_NOTCH</code></td><td><b>Pin mode:</b> <code>NORMAL</code> <span class="mut">(default)</span>, <code>PDOWN</code> (pull-down), <code>PUP</code> (pull-up)</td><td><b>Bus:</b> <code>MAIN</code> <span class="mut">(default)</span>: SDA 21, SCL 22<br><code>AUX1</code>: SDA 19, SCL 18</td></tr><tr class=""><th scope="row" class="pt-f"><code>dev_misc_data</code><span class="pt-sub">parameter 1</span></th><td><code>MOV_AVG</code>, <code>MEDIAN</code>: window, samples (≤ 50)<br><code>EXPONENTIAL</code>: α, 0–1 (smaller = smoother)<br><code>BUTTER2_*</code>: cut-off or centre frequency, Hz</td><td>n/a</td><td><b>BNO085:</b> channels 3, 6 or 9 <span class="mut">(other values give 3)</span><br><b>NAU7802, AS5600:</b> not used</td></tr><tr class=""><th scope="row" class="pt-f"><code>dev_misc_data2</code><span class="pt-sub">parameter 2</span></th><td><code>BUTTER2_*</code>: Q, required <span class="mut">(0.707 = Butterworth)</span><br>other filters: not used</td><td>n/a</td><td>n/a</td></tr><tr class="pt-der"><th scope="row" class="pt-f"><code>data_per_device</code><span class="pt-sub">set by ESA: omit</span></th><td>1</td><td>1</td><td>set by the driver: NAU7802 1 · AS5600 3 · BNO085 3, 6 or 9</td></tr><tr class="pt-ex"><th scope="row" class="pt-f">Example row</th><td><code>{ AI, 34, &quot;FSR&quot;, MEDIAN, 3 }</code></td><td><code>{ DI, 26, &quot;HEEL&quot;, PUP }</code></td><td><code>{ I2C, 0x4A, &quot;IMU_T&quot;, MAIN, 9 }</code></td></tr></tbody></table><div class="tnote"><p>Fields are positional; trailing fields may be left out and are then 0, which gives the defaults marked above. n/a: not used.</p><p>Butterworth filters are designed for the publication rate given to <code>setupPublisher()</code>.</p><p>Driver calibration (NAU7802 slope and zero offset, AS5600 direction pin) is not part of the row; it is set in the driver&#x27;s registration line (Table S2).</p></div></div>
+<p>The I²C drivers shipped with ESA:</p>
+<div class="table-wrap"><table class="t"><colgroup><col style="width:21%"><col style="width:11%"><col style="width:40%"><col style="width:15%"><col style="width:13%"></colgroup><tr><th>I²C driver</th><th>Address</th><th>Channels (in order)</th><th>misc1</th><th>misc2</th></tr><tr><td>NAU7802 load-cell amplifier</td><td>0x2A</td><td>force, N (tension only)</td><td>n/a (slope and offset are set in the driver's registration line)</td><td>n/a</td></tr><tr><td>BNO085 IMU</td><td>0x4A, 0x4B</td><td>3: roll, pitch, yaw (deg) · 6: + angular velocity x,y,z · 9: + linear acceleration x,y,z</td><td>3, 6 or 9</td><td>n/a</td></tr><tr><td>AS5600 magnetic encoder</td><td>0x36</td><td>angle (deg), angular speed (deg/s), cumulative position (counts)</td><td>n/a (direction pin GPIO&nbsp;4, set in the driver)</td><td>n/a</td></tr></table></div>
+<h2 id="b-esa-sketch-actuation-board">B. ESA sketch: actuation board</h2>
+<div class="cb"><div class="codehead">actuator_board.ino</div><pre class="code">#include "ESA.h"
+SoftExoWalk exo;
+
+DeviceConfig deviceList[] = { };                      <span class="cm">// no sensors on this board</span>
+const size_t deviceList_len = sizeof(deviceList) / sizeof(deviceList[0]);
+
+void setup() {
+  exo.setupCommunication("wifi", "SSID", "PASSWORD", "192.168.1.10", 8888);
+  if (exo.initializeSystem()) {
+    exo.setupNode("actuator_node");
+    <span class="cm">//                  command topic              actuator                   out    x1   x2</span>
+    exo.setupActuation(<span class="chg">"/right/hip_ppr_cmd"<sup>1</sup></span>, <span class="chg">ACT_FESTO_VEAB_L26<sup>2</sup></span>, <span class="chg">26<sup>3</sup></span>, <span class="chg">17<sup>4</sup></span>, <span class="chg">34<sup>5</sup></span>);
+    exo.setupActuation("/left/hip_ppr_cmd",        ACT_FESTO_VEAB_L26,        25,     5,  39);
+    exo.bootSystem();
+  }
+}
+
+void loop() {
+  exo.actuate();              <span class="cm">// all actuators; exo.actuate("/right/hip_ppr_cmd") drives only that one</span>
+}</pre></div><table class="legend"><tr><td class="k"><span class="mk">1</span></td><td>command topic: must equal <code>output_topic</code> of a planner in <code>mplanner.yaml</code></td></tr><tr><td class="k"><span class="mk">2</span></td><td>identifier of a registered actuator driver (table below)</td></tr><tr><td class="k"><span class="mk">3</span></td><td>output: GPIO pin or I²C address</td></tr><tr><td class="k"><span class="mk">4</span></td><td>first driver-specific value (omit if unused)</td></tr><tr><td class="k"><span class="mk">5</span></td><td>second driver-specific value (omit if unused)</td></tr></table><div class="table-wrap"><table class="t"><colgroup><col style="width:27%"><col style="width:19%"><col style="width:15%"><col style="width:20%"><col style="width:19%"></colgroup><tr><th>Actuator</th><th>out</th><th>x1</th><th>x2</th><th>Command (Float32)</th></tr><tr><td><code>ACT_FESTO_VEAB_L26</code> proportional pressure valve</td><td>analog output GPIO (25, 26)</td><td>exhaust valve GPIO</td><td>pressure-feedback ADC GPIO (omit if none)</td><td>pressure set-point, kPa</td></tr><tr><td><code>ACT_SG90_SERVO</code> servo via PCA9685</td><td>PCA9685 I²C address (e.g. 0x40)</td><td>PWM channel 0–15</td><td>PWM frequency, Hz (50)</td><td>angle, 0–180°</td></tr><tr><td><code>LED_TEST</code> test output</td><td>GPIO</td><td>n/a</td><td>n/a</td><td>&gt; 0 → on, otherwise off</td></tr></table></div>
+<div class="pt-block" id="table-s2"><div class="tcap"><b>Table S2.</b> Driver registries. Each driver enters itself in a registry through one registration line in its header, before <code>setup()</code> runs. ESA then finds the driver for every device without any change to the library.</div><table class="pt"><colgroup><col style="width:19%"><col style="width:42%"><col style="width:39%"></colgroup><thead><tr><th class="pt-f"></th><th class="pt-c" style="border-bottom-color:#0F766E">I²C sensor registry</th><th class="pt-c" style="border-bottom-color:#4338CA">Actuator registry</th></tr></thead><tbody><tr class=""><th scope="row" class="pt-f">Registration line<span class="pt-sub">in the driver header</span></th><td><code>REGISTER_I2C_SENSOR(addr, bus, INIT, READ, info1, info2)</code></td><td><code>REGISTER_ACTUATOR(ID, INIT, ACTUATE)</code></td></tr><tr class=""><th scope="row" class="pt-f">Key</th><td>bus and 7-bit address, e.g. <code>MAIN</code> + <code>0x2A</code></td><td>identifier of the <code>ActuatorType</code> enum in <code>actuation.h</code>, e.g. <code>ACT_FESTO_VEAB_L26</code></td></tr><tr class=""><th scope="row" class="pt-f">Selected by</th><td>a device row <code>{ I2C, addr, name, bus, … }</code>, matched in <code>initializeSystem()</code></td><td><code>setupActuation(topic, ID, out, x1, x2)</code>, resolved in <code>bootSystem()</code></td></tr><tr class=""><th scope="row" class="pt-f">Driver receives</th><td><code>info1</code>, <code>info2</code> of the matching registration line</td><td><code>out</code>, <code>x1</code>, <code>x2</code> of the call <span class="mut">(values ≤ 0 arrive as 0)</span></td></tr><tr class=""><th scope="row" class="pt-f">No matching entry</th><td>the device fails; <code>initializeSystem()</code> returns false</td><td>the actuator is skipped without an error</td></tr><tr class=""><th scope="row" class="pt-f">Capacity</th><td>8 entries (<code>MAX_I2C_SENS</code>); the shipped lines use all 8</td><td>one entry per identifier; up to 5 actuators per board</td></tr><tr class="pt-list"><th scope="row" class="pt-f">Entries in v1.0</th><td><b>NAU7802</b>: <code>MAIN 0x2A</code>, <code>AUX1 0x2A</code>; info1 slope, info2 zero offset, calibrated per bus<br><b>BNO085</b>: <code>MAIN 0x4A</code>, <code>MAIN 0x4B</code>, <code>AUX1 0x4A</code>, <code>AUX1 0x4B</code>; no info values<br><b>AS5600</b>: <code>MAIN 0x36</code>, <code>AUX1 0x36</code>; info1 = 4, the direction pin</td><td><code>ACT_FESTO_VEAB_L26</code>: proportional pressure valve<br><code>ACT_SG90_SERVO</code>: servo through a PCA9685<br><code>LED_TEST</code>: test output</td></tr><tr class=""><th scope="row" class="pt-f">Adding a driver</th><td>a header–source pair with its registration lines (<a href="extend-esa.html#i2c-sensor-driver">§2.5</a>)</td><td>a header–source pair with its registration line, and the identifier added to <code>ActuatorType</code> (<a href="extend-esa.html#actuator-driver">§2.6</a>)</td></tr></tbody></table><div class="tnote"><p>An I²C entry is looked up once and then called through a cached pointer; actuator entries are indexed directly by their identifier.</p></div></div>
+<div class="box rule"><span class="bt">ESA RULES</span><ul><li><b>Call order:</b> <code>setupCommunication</code> → <code>initializeSystem</code> → <code>setupNode</code> → <code>setupPublisher</code> / <code>setupActuation</code> → <code>bootSystem</code>. The analog filters are designed when <code>setupPublisher</code> runs, so it must come after <code>initializeSystem</code>.</li><li><b>USB transport:</b> micro-ROS uses the serial port, so do not call <code>Serial.begin</code> or <code>Serial.print</code> in the sketch.</li><li><b>Wi-Fi:</b> analog inputs must use ADC1 pins (GPIO 32–39); ADC2 is unavailable while Wi-Fi is active.</li><li><b>I²C buses:</b> <code>MAIN</code> = SDA 21 / SCL 22, <code>AUX1</code> = SDA 19 / SCL 18, 400 kHz. A bus–address pair can be used once.</li><li>A board may publish and actuate at once: call both <code>setupPublisher</code> and <code>setupActuation</code>, and in <code>loop()</code> call <code>readSensorsData()</code>, <code>publish(true)</code> and <code>actuate()</code>. Up to 5 actuators per board.</li><li>An analog device whose name starts with <code>BAT</code> is treated as a battery monitor (×1.34 divider, clipped at 4.2 V).</li><li>Status LED on GPIO 23 blinks if a ROS entity cannot be created; the watchdog resets a stalled board after 3 s.</li></ul></div>
+
+<h2 id="c-sensors-yaml-hubs-and-channel-names">C. sensors.yaml: hubs and channel names</h2>
+<p>One entry per sensing board. List <b>one name per published channel, in the exact order the board publishes them</b>:
+devices in <code>deviceList</code> order, each expanded to its channel count. These names are how every algorithm
+refers to a signal.</p>
+<div class="cb"><div class="codehead">~/exo_stack_resources/config/sensors.yaml</div><pre class="code">hubs:
+  <span class="chg">hubr<sup>1</sup></span>:
+    topic: <span class="chg">"/hub_right"<sup>2</sup></span>
+    sensors: [<span class="chg">"thigh_roll", "thigh_pitch", "thigh_yaw", "thigh_omega_x", "thigh_omega_y", "thigh_omega_z",<sup>3</sup></span>
+              "thigh_acc_x", "thigh_acc_y", "thigh_acc_z",
+              "shank_roll", "shank_pitch", "shank_yaw", "shank_omega_x", "shank_omega_y", "shank_omega_z",
+              "shank_acc_x", "shank_acc_y", "shank_acc_z",
+              "force_flexion", "force_extension", "fsr"]
+  hubl:
+    topic: "/hub_left"
+    sensors: [ ... same 21 names ... ]
+slop_time: <span class="chg">0.010<sup>4</sup></span>
+output_topic: "/synced_sensors"</pre></div><table class="legend"><tr><td class="k"><span class="mk">1</span></td><td>hub key: used as <code>[hub, name]</code> in the other files</td></tr><tr><td class="k"><span class="mk">2</span></td><td>the board's publisher topic</td></tr><tr><td class="k"><span class="mk">3</span></td><td>channel names in publication order</td></tr><tr><td class="k"><span class="mk">4</span></td><td>seconds; messages from different hubs closer than this are combined into one sample</td></tr></table><div class="table-wrap"><table class="t"><colgroup><col style="width:32%"><col style="width:13%"><col style="width:11%"><col style="width:44%"></colgroup><tr><th>Device row (sketch)</th><th>Channels</th><th>Slots</th><th>Names in sensors.yaml</th></tr><tr><td>IMU_T (BNO085, misc1 = 9)</td><td>9</td><td>0–8</td><td><code>thigh_roll … thigh_acc_z</code></td></tr><tr><td>IMU_S (BNO085, misc1 = 9)</td><td>9</td><td>9–17</td><td><code>shank_roll … shank_acc_z</code></td></tr><tr><td>LC_F (NAU7802)</td><td>1</td><td>18</td><td><code>force_flexion</code></td></tr><tr><td>LC_E (NAU7802)</td><td>1</td><td>19</td><td><code>force_extension</code></td></tr><tr><td>FSR (AI)</td><td>1</td><td>20</td><td><code>fsr</code></td></tr></table></div><div class="box tip"><span class="bt">CHECK THE CHANNEL COUNT</span>With the board running, <code>ros2 topic echo /hub_right --once</code> shows <code>range_max</code> = number of channels and <code>range_min</code> = number of devices. The <code>sensors</code> list must have exactly <code>range_max</code> names. Keep <code>output_topic: "/synced_sensors"</code>; the cost node subscribes to that name.</div>
+
+<h2 id="d-gait-events-yaml-event-detectors">D. gait_events.yaml: event detectors</h2>
+<div class="cb"><div class="codehead">~/exo_stack_resources/config/gait_events.yaml</div><pre class="code">events:
+  <span class="chg">right_heel_strike<sup>1</sup></span>:
+    input_topic: "/synced_sensors"
+    sensors: [<span class="chg">[hubr, fsr<sup>2</sup></span>]]
+    algorithm: <span class="chg">"HeelStrike"<sup>3</sup></span>
+    parameters: [<span class="chg">2.0, 0.2<sup>4</sup></span>]
+    history_size: <span class="chg">5<sup>5</sup></span>
+    output_topic: <span class="chg">"/heel_strike_right"<sup>6</sup></span></pre></div><table class="legend"><tr><td class="k"><span class="mk">1</span></td><td>event key: becomes the node name; one detector node runs per key</td></tr><tr><td class="k"><span class="mk">2</span></td><td><code>[hub, channel]</code> pairs passed to the detector, in this order</td></tr><tr><td class="k"><span class="mk">3</span></td><td>detector plug-in: file and class name in <code>algo/gait_events/</code></td></tr><tr><td class="k"><span class="mk">4</span></td><td>list handed to the detector; meaning per algorithm (table)</td></tr><tr><td class="k"><span class="mk">5</span></td><td>sliding-window length in samples (PASE: <i>Window Size</i>)</td></tr><tr><td class="k"><span class="mk">6</span></td><td>topic on which an <code>Int32</code> pulse (value 1) is published at each event</td></tr></table><div class="table-wrap"><table class="t"><colgroup><col style="width:28%"><col style="width:20%"><col style="width:52%"></colgroup><tr><th>Detector</th><th>parameters</th><th>Fires when</th></tr><tr><td><code>HeelStrike</code></td><td>[threshold, fraction]</td><td>the signal rises above <i>threshold</i> and stays there for <i>fraction</i> of the window, after a low window</td></tr><tr><td><code>ZeroCrossingPosToNeg</code></td><td>[fraction]</td><td>the signal crosses from positive to negative and stays negative for <i>fraction</i> of the window</td></tr><tr><td><code>ZeroCrossingNegToPos</code></td><td>[fraction]</td><td>the reverse crossing</td></tr></table></div>
+<div class="sfig" id="fig-s1"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="-8 -4 736 1000" font-family="DejaVu Sans, Arial, Helvetica, sans-serif">
+<title>Fig. S1. ExoCore elements</title>
+<rect x="-8" y="-4" width="100%" height="100%" fill="#FFFFFF"/>
+<g id="panel-a"><text x="0.0" y="15.0" font-size="12.2" fill="#16232A"><tspan font-weight="bold">(a)</tspan><tspan dx="6" font-weight="bold">Gait-event detection with a confidence window</tspan></text>
+<text x="0.0" y="33.0" font-size="10.2" fill="#5F707A"><tspan font-family="DejaVu Sans Mono, Consolas, Menlo, monospace" fill="#0C3A40">HeelStrike</tspan><tspan fill="#5F707A">  ·  threshold 2.0 V  ·  window </tspan><tspan font-style="italic">N</tspan><tspan> = 10 samples  ·  fraction </tspan><tspan font-style="italic">F</tspan><tspan> = 0.3  →  event after </tspan><tspan font-style="italic">k</tspan><tspan> = ⌈</tspan><tspan font-style="italic">F·N</tspan><tspan>⌉ = 3 consecutive samples above the threshold</tspan></text>
+<line x1="50.0" y1="186.0" x2="712.0" y2="186.0" stroke="#E3E9ED" stroke-width="0.7"/>
+<text x="44.0" y="189.5" font-size="9.5" fill="#5F707A" text-anchor="end">0</text>
+<line x1="50.0" y1="149.6" x2="712.0" y2="149.6" stroke="#E3E9ED" stroke-width="0.7"/>
+<text x="44.0" y="153.1" font-size="9.5" fill="#5F707A" text-anchor="end">1</text>
+<line x1="50.0" y1="113.3" x2="712.0" y2="113.3" stroke="#E3E9ED" stroke-width="0.7"/>
+<text x="44.0" y="116.8" font-size="9.5" fill="#5F707A" text-anchor="end">2</text>
+<line x1="50.0" y1="76.9" x2="712.0" y2="76.9" stroke="#E3E9ED" stroke-width="0.7"/>
+<text x="44.0" y="80.4" font-size="9.5" fill="#5F707A" text-anchor="end">3</text>
+<text x="14.0" y="126.0" font-size="9.8" fill="#5F707A" text-anchor="middle" transform="rotate(-90 14 126.0)">FSR (V)</text>
+<rect x="107.3" y="58.0" width="56.6" height="128.0" fill="#B42318" fill-opacity="0.09" stroke="#B42318" stroke-width="0.9" stroke-opacity="0.75"/>
+<circle cx="135.6" cy="49.0" r="8.5" fill="#B42318"/><text x="135.6" y="52.6" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">1</text>
+<rect x="192.9" y="58.0" width="56.6" height="128.0" fill="#0F766E" fill-opacity="0.09" stroke="#0F766E" stroke-width="0.9" stroke-opacity="0.75"/>
+<circle cx="221.2" cy="49.0" r="8.5" fill="#0F766E"/><text x="221.2" y="52.6" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">2</text>
+<rect x="261.4" y="58.0" width="56.6" height="128.0" fill="#B42318" fill-opacity="0.09" stroke="#B42318" stroke-width="0.9" stroke-opacity="0.75"/>
+<circle cx="289.7" cy="49.0" r="8.5" fill="#B42318"/><text x="289.7" y="52.6" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">3</text>
+<rect x="472.6" y="58.0" width="56.6" height="128.0" fill="#1D4ED8" fill-opacity="0.09" stroke="#1D4ED8" stroke-width="0.9" stroke-opacity="0.75"/>
+<circle cx="500.8" cy="49.0" r="8.5" fill="#1D4ED8"/><text x="500.8" y="52.6" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">4</text>
+<rect x="581.0" y="58.0" width="56.6" height="128.0" fill="#0F766E" fill-opacity="0.09" stroke="#0F766E" stroke-width="0.9" stroke-opacity="0.75"/>
+<circle cx="609.3" cy="49.0" r="8.5" fill="#0F766E"/><text x="609.3" y="52.6" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">5</text>
+<line x1="50.0" y1="113.3" x2="712.0" y2="113.3" stroke="#64748B" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="712.0" y="109.3" font-size="9.2" fill="#64748B" text-anchor="end">threshold</text>
+<line x1="246.9" y1="58.0" x2="246.9" y2="186.0" stroke="#0F766E" stroke-width="1.6"/>
+<text x="250.9" y="180.0" font-size="9.4" fill="#0F766E" font-weight="bold">event</text>
+<line x1="635.0" y1="58.0" x2="635.0" y2="186.0" stroke="#0F766E" stroke-width="1.6"/>
+<text x="639.0" y="180.0" font-size="9.4" fill="#0F766E" font-weight="bold">event</text>
+<polyline points="52.9,175.1 58.6,173.4 64.3,174.7 70.0,175.6 75.7,174.0 81.4,174.0 87.1,176.3 92.8,176.5 98.5,174.7 104.2,175.1 109.9,176.4 115.6,175.0 121.3,173.2 127.0,174.5 132.8,175.8 138.5,174.4 144.2,174.2 149.9,176.4 155.6,100.5 161.3,105.3 167.0,153.3 172.7,176.1 178.4,174.9 184.1,173.1 189.8,174.4 195.5,176.0 201.2,174.9 206.9,174.4 212.6,176.4 218.4,176.8 224.1,166.0 229.8,136.9 235.5,102.4 241.2,84.2 246.9,76.2 252.6,76.8 258.3,75.4 264.0,75.2 269.7,76.3 275.4,77.8 281.1,78.7 286.8,78.2 292.5,76.7 298.2,104.2 304.0,123.5 309.7,96.9 315.4,77.9 321.1,78.7 326.8,78.2 332.5,76.7 338.2,75.4 343.9,75.2 349.6,76.3 355.3,77.9 361.0,78.7 366.7,78.2 372.4,76.7 378.1,75.3 383.9,75.2 389.6,76.4 395.3,77.9 401.0,78.7 406.7,78.1 412.4,76.6 418.1,75.3 423.8,75.2 429.5,76.4 435.2,78.0 440.9,78.7 446.6,78.1 452.3,76.6 458.0,96.9 463.8,129.6 469.5,106.7 475.2,147.8 480.9,167.1 486.6,172.2 492.3,176.1 498.0,174.6 503.7,174.8 509.4,176.8 515.1,176.3 520.8,174.1 526.5,174.5 532.2,175.7 537.9,174.4 543.6,173.2 549.4,175.2 555.1,176.5 560.8,175.0 566.5,174.8 572.2,176.6 577.9,176.2 583.6,173.9 589.3,174.1 595.0,175.6 600.7,174.6 606.4,173.5 612.1,163.5 617.8,134.4 623.5,100.2 629.2,82.0 635.0,76.2 640.7,78.7 646.4,78.0 652.1,76.5 657.8,75.2 663.5,75.3 669.2,76.6 674.9,78.1 680.6,78.7 686.3,78.0 692.0,76.4 697.7,75.2 703.4,75.3 709.1,76.6" fill="none" stroke="#94A3B8" stroke-width="0.9"/>
+<circle cx="52.9" cy="175.1" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="58.6" cy="173.4" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="64.3" cy="174.7" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="70.0" cy="175.6" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="75.7" cy="174.0" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="81.4" cy="174.0" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="87.1" cy="176.3" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="92.8" cy="176.5" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="98.5" cy="174.7" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="104.2" cy="175.1" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="109.9" cy="176.4" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="115.6" cy="175.0" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="121.3" cy="173.2" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="127.0" cy="174.5" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="132.8" cy="175.8" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="138.5" cy="174.4" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="144.2" cy="174.2" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="149.9" cy="176.4" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="155.6" cy="100.5" r="2.2" fill="#334155"/>
+<circle cx="161.3" cy="105.3" r="2.2" fill="#334155"/>
+<circle cx="167.0" cy="153.3" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="172.7" cy="176.1" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="178.4" cy="174.9" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="184.1" cy="173.1" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="189.8" cy="174.4" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="195.5" cy="176.0" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="201.2" cy="174.9" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="206.9" cy="174.4" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="212.6" cy="176.4" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="218.4" cy="176.8" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="224.1" cy="166.0" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="229.8" cy="136.9" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="235.5" cy="102.4" r="2.2" fill="#334155"/>
+<circle cx="241.2" cy="84.2" r="2.2" fill="#334155"/>
+<circle cx="246.9" cy="76.2" r="2.2" fill="#334155"/>
+<circle cx="252.6" cy="76.8" r="2.2" fill="#334155"/>
+<circle cx="258.3" cy="75.4" r="2.2" fill="#334155"/>
+<circle cx="264.0" cy="75.2" r="2.2" fill="#334155"/>
+<circle cx="269.7" cy="76.3" r="2.2" fill="#334155"/>
+<circle cx="275.4" cy="77.8" r="2.2" fill="#334155"/>
+<circle cx="281.1" cy="78.7" r="2.2" fill="#334155"/>
+<circle cx="286.8" cy="78.2" r="2.2" fill="#334155"/>
+<circle cx="292.5" cy="76.7" r="2.2" fill="#334155"/>
+<circle cx="298.2" cy="104.2" r="2.2" fill="#334155"/>
+<circle cx="304.0" cy="123.5" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="309.7" cy="96.9" r="2.2" fill="#334155"/>
+<circle cx="315.4" cy="77.9" r="2.2" fill="#334155"/>
+<circle cx="321.1" cy="78.7" r="2.2" fill="#334155"/>
+<circle cx="326.8" cy="78.2" r="2.2" fill="#334155"/>
+<circle cx="332.5" cy="76.7" r="2.2" fill="#334155"/>
+<circle cx="338.2" cy="75.4" r="2.2" fill="#334155"/>
+<circle cx="343.9" cy="75.2" r="2.2" fill="#334155"/>
+<circle cx="349.6" cy="76.3" r="2.2" fill="#334155"/>
+<circle cx="355.3" cy="77.9" r="2.2" fill="#334155"/>
+<circle cx="361.0" cy="78.7" r="2.2" fill="#334155"/>
+<circle cx="366.7" cy="78.2" r="2.2" fill="#334155"/>
+<circle cx="372.4" cy="76.7" r="2.2" fill="#334155"/>
+<circle cx="378.1" cy="75.3" r="2.2" fill="#334155"/>
+<circle cx="383.9" cy="75.2" r="2.2" fill="#334155"/>
+<circle cx="389.6" cy="76.4" r="2.2" fill="#334155"/>
+<circle cx="395.3" cy="77.9" r="2.2" fill="#334155"/>
+<circle cx="401.0" cy="78.7" r="2.2" fill="#334155"/>
+<circle cx="406.7" cy="78.1" r="2.2" fill="#334155"/>
+<circle cx="412.4" cy="76.6" r="2.2" fill="#334155"/>
+<circle cx="418.1" cy="75.3" r="2.2" fill="#334155"/>
+<circle cx="423.8" cy="75.2" r="2.2" fill="#334155"/>
+<circle cx="429.5" cy="76.4" r="2.2" fill="#334155"/>
+<circle cx="435.2" cy="78.0" r="2.2" fill="#334155"/>
+<circle cx="440.9" cy="78.7" r="2.2" fill="#334155"/>
+<circle cx="446.6" cy="78.1" r="2.2" fill="#334155"/>
+<circle cx="452.3" cy="76.6" r="2.2" fill="#334155"/>
+<circle cx="458.0" cy="96.9" r="2.2" fill="#334155"/>
+<circle cx="463.8" cy="129.6" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="469.5" cy="106.7" r="2.2" fill="#334155"/>
+<circle cx="475.2" cy="147.8" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="480.9" cy="167.1" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="486.6" cy="172.2" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="492.3" cy="176.1" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="498.0" cy="174.6" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="503.7" cy="174.8" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="509.4" cy="176.8" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="515.1" cy="176.3" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="520.8" cy="174.1" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="526.5" cy="174.5" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="532.2" cy="175.7" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="537.9" cy="174.4" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="543.6" cy="173.2" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="549.4" cy="175.2" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="555.1" cy="176.5" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="560.8" cy="175.0" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="566.5" cy="174.8" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="572.2" cy="176.6" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="577.9" cy="176.2" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="583.6" cy="173.9" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="589.3" cy="174.1" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="595.0" cy="175.6" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="600.7" cy="174.6" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="606.4" cy="173.5" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="612.1" cy="163.5" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="617.8" cy="134.4" r="2.0" fill="#FFFFFF" stroke="#334155" stroke-width="0.9"/>
+<circle cx="623.5" cy="100.2" r="2.2" fill="#334155"/>
+<circle cx="629.2" cy="82.0" r="2.2" fill="#334155"/>
+<circle cx="635.0" cy="76.2" r="2.2" fill="#334155"/>
+<circle cx="640.7" cy="78.7" r="2.2" fill="#334155"/>
+<circle cx="646.4" cy="78.0" r="2.2" fill="#334155"/>
+<circle cx="652.1" cy="76.5" r="2.2" fill="#334155"/>
+<circle cx="657.8" cy="75.2" r="2.2" fill="#334155"/>
+<circle cx="663.5" cy="75.3" r="2.2" fill="#334155"/>
+<circle cx="669.2" cy="76.6" r="2.2" fill="#334155"/>
+<circle cx="674.9" cy="78.1" r="2.2" fill="#334155"/>
+<circle cx="680.6" cy="78.7" r="2.2" fill="#334155"/>
+<circle cx="686.3" cy="78.0" r="2.2" fill="#334155"/>
+<circle cx="692.0" cy="76.4" r="2.2" fill="#334155"/>
+<circle cx="697.7" cy="75.2" r="2.2" fill="#334155"/>
+<circle cx="703.4" cy="75.3" r="2.2" fill="#334155"/>
+<circle cx="709.1" cy="76.6" r="2.2" fill="#334155"/>
+<line x1="50.0" y1="186.0" x2="712.0" y2="186.0" stroke="#8796A0" stroke-width="1"/>
+<line x1="52.9" y1="186.0" x2="52.9" y2="189.0" stroke="#8796A0" stroke-width="1"/>
+<text x="52.9" y="199.0" font-size="9.5" fill="#5F707A" text-anchor="middle">0</text>
+<line x1="167.0" y1="186.0" x2="167.0" y2="189.0" stroke="#8796A0" stroke-width="1"/>
+<text x="167.0" y="199.0" font-size="9.5" fill="#5F707A" text-anchor="middle">20</text>
+<line x1="281.1" y1="186.0" x2="281.1" y2="189.0" stroke="#8796A0" stroke-width="1"/>
+<text x="281.1" y="199.0" font-size="9.5" fill="#5F707A" text-anchor="middle">40</text>
+<line x1="395.3" y1="186.0" x2="395.3" y2="189.0" stroke="#8796A0" stroke-width="1"/>
+<text x="395.3" y="199.0" font-size="9.5" fill="#5F707A" text-anchor="middle">60</text>
+<line x1="509.4" y1="186.0" x2="509.4" y2="189.0" stroke="#8796A0" stroke-width="1"/>
+<text x="509.4" y="199.0" font-size="9.5" fill="#5F707A" text-anchor="middle">80</text>
+<line x1="623.5" y1="186.0" x2="623.5" y2="189.0" stroke="#8796A0" stroke-width="1"/>
+<text x="623.5" y="199.0" font-size="9.5" fill="#5F707A" text-anchor="middle">100</text>
+<text x="381.0" y="212.0" font-size="9.5" fill="#5F707A" text-anchor="middle">sample (100 Hz)</text>
+<text x="44.0" y="232.5" font-size="9.5" fill="#5F707A" text-anchor="end">detector</text>
+<rect x="50.0" y="222.0" width="194.0" height="14" rx="2" fill="#DBE7FE"/>
+<text x="147.0" y="232.3" font-size="9.4" fill="#1D4ED8" font-weight="bold" text-anchor="middle">armed</text>
+<rect x="244.0" y="222.0" width="279.6" height="14" rx="2" fill="#EEF2F5"/>
+<text x="383.9" y="232.3" font-size="9.4" fill="#5F707A" text-anchor="middle">disarmed</text>
+<rect x="523.7" y="222.0" width="108.4" height="14" rx="2" fill="#DBE7FE"/>
+<text x="577.9" y="232.3" font-size="9.4" fill="#1D4ED8" font-weight="bold" text-anchor="middle">armed</text>
+<rect x="632.1" y="222.0" width="79.9" height="14" rx="2" fill="#EEF2F5"/>
+<text x="672.1" y="232.3" font-size="9.4" fill="#5F707A" text-anchor="middle">disarmed</text>
+<circle cx="8.5" cy="254.4" r="7.2" fill="#B42318"/><text x="8.5" y="258.0" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">1</text>
+<text x="22.0" y="258.0" font-size="10.2" fill="#16232A"><tspan font-weight="bold" fill="#B42318">Spike</tspan><tspan fill="#16232A">: 2 samples above the threshold, fewer than <tspan font-style="italic">k</tspan>: rejected; the detector stays armed</tspan></text>
+<circle cx="8.5" cy="270.9" r="7.2" fill="#0F766E"/><text x="8.5" y="274.5" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">2</text>
+<text x="22.0" y="274.5" font-size="10.2" fill="#16232A"><tspan font-weight="bold" fill="#0F766E">Heel strike</tspan><tspan fill="#16232A">: <tspan font-style="italic">k</tspan>-th consecutive sample above while armed: event published; the detector disarms</tspan></text>
+<circle cx="8.5" cy="287.4" r="7.2" fill="#B42318"/><text x="8.5" y="291.0" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">3</text>
+<text x="22.0" y="291.0" font-size="10.2" fill="#16232A"><tspan font-weight="bold" fill="#B42318">Chatter</tspan><tspan fill="#16232A">: the signal re-crosses the threshold while disarmed: no event</tspan></text>
+<circle cx="8.5" cy="303.9" r="7.2" fill="#1D4ED8"/><text x="8.5" y="307.5" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">4</text>
+<text x="22.0" y="307.5" font-size="10.2" fill="#16232A"><tspan font-weight="bold" fill="#1D4ED8">Re-arm</tspan><tspan fill="#16232A">: a full window below the threshold, counted from the last sample above</tspan></text>
+<circle cx="8.5" cy="320.4" r="7.2" fill="#0F766E"/><text x="8.5" y="324.0" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">5</text>
+<text x="22.0" y="324.0" font-size="10.2" fill="#16232A"><tspan font-weight="bold" fill="#0F766E">Next heel strike</tspan><tspan fill="#16232A">: armed again, so the <tspan font-style="italic">k</tspan>-th sample above gives the next event</tspan></text>
+<text x="720.0" y="324.0" font-size="9.4" fill="#16232A" text-anchor="end"><tspan fill="#5F707A">● above the threshold   ○ below</tspan></text></g>
+<line x1="0" y1="343.0" x2="720" y2="343.0" stroke="#C9D5DB" stroke-width="0.8"/>
+<g id="panel-b" transform="translate(0 354.0)"><text x="0.0" y="15.0" font-size="12.2" fill="#16232A"><tspan font-weight="bold">(b)</tspan><tspan dx="6" font-weight="bold">From a lookup-table row to a motion command (Deployment mode)</tspan></text>
+<circle cx="39.0" cy="38.5" r="8.5" fill="#334155"/><text x="39.0" y="42.1" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">1</text>
+<text x="53.0" y="42.5" font-size="10.8" fill="#16232A" font-weight="bold">Read the inputs</text>
+<text x="53.0" y="56.0" font-size="9.3" fill="#5F707A">every 1/rate = 20 ms</text>
+<rect x="208.0" y="34.0" width="88.6" height="12.9" rx="2.5" fill="#EAF1F4"/><text x="211.0" y="43.0" font-size="9.8" fill="#0C3A40" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">/walking_speed</text>
+<text x="302.6" y="43.0" font-size="10.4" fill="#16232A"><tspan>Float32 = </tspan><tspan font-weight="bold">3.8</tspan><tspan fill="#5F707A">   (intent from a second topic, if required)</tspan></text>
+<circle cx="39.0" cy="82.5" r="8.5" fill="#334155"/><text x="39.0" y="86.1" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">2</text>
+<text x="53.0" y="86.5" font-size="10.8" fill="#16232A" font-weight="bold">Select a row</text>
+<text x="53.0" y="100.0" font-size="9.3" fill="#5F707A" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">Lookup_Speed_Segmentwise</text>
+<text x="208.0" y="86.0" font-size="9.6" fill="#16232A"><tspan fill="#0C3A40">lookup_table/&lt;name&gt;.json</tspan><tspan fill="#5F707A"> : keys are walking speeds; each row is [start, t1, v1, t2, v2, t3, v3, end]</tspan></text>
+<text x="212.0" y="105.0" font-size="9.9" fill="#7D8E97" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">"3.5": [50, 180, 260, 380, 400, 580, 220, 800]</text>
+<rect x="206.0" y="110.0" width="330.0" height="15" rx="2.5" fill="#D1F0EC" stroke="#0F766E" stroke-width="0.9"/>
+<text x="212.0" y="121.0" font-size="9.9" fill="#0C3A40" font-weight="bold" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">"4.0": [50, 200, 300, 400, 450, 600, 250, 800]</text>
+<text x="212.0" y="137.0" font-size="9.9" fill="#7D8E97" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">"4.5": [50, 220, 340, 420, 480, 620, 280, 800]</text>
+<text x="550.0" y="121.0" font-size="10" fill="#0F766E" font-weight="bold">← nearest key to 3.8</text>
+<text x="550.0" y="135.0" font-size="9.3" fill="#5F707A">(clamped at the first and last key)</text>
+<circle cx="39.0" cy="162.5" r="8.5" fill="#334155"/><text x="39.0" y="166.1" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">3</text>
+<text x="53.0" y="166.5" font-size="10.8" fill="#16232A" font-weight="bold">Build the waypoints</text>
+<text x="53.0" y="180.0" font-size="9.3" fill="#5F707A" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">Builder_Nwaypoint_List</text>
+<text x="208.0" y="166.0" font-size="9.6" fill="#5F707A">adds the default value 20 at start and end → five (t ms, value) pairs:</text>
+<rect x="208.0" y="175.8" width="56.2" height="13.2" rx="2.5" fill="#FDF2E2"/><text x="212.0" y="185.0" font-size="10" fill="#8A4B0F" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">(50, 20)</text>
+<rect x="272.2" y="175.8" width="68.2" height="13.2" rx="2.5" fill="#EAF1F4"/><text x="276.2" y="185.0" font-size="10" fill="#0C3A40" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">(200, 300)</text>
+<rect x="348.4" y="175.8" width="68.2" height="13.2" rx="2.5" fill="#EAF1F4"/><text x="352.4" y="185.0" font-size="10" fill="#0C3A40" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">(400, 450)</text>
+<rect x="424.5" y="175.8" width="68.2" height="13.2" rx="2.5" fill="#EAF1F4"/><text x="428.5" y="185.0" font-size="10" fill="#0C3A40" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">(600, 250)</text>
+<rect x="500.7" y="175.8" width="62.2" height="13.2" rx="2.5" fill="#FDF2E2"/><text x="504.7" y="185.0" font-size="10" fill="#8A4B0F" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">(800, 20)</text>
+<text x="574.9" y="185.0" font-size="9.3" fill="#8A4B0F">default</text>
+<circle cx="39.0" cy="214.5" r="8.5" fill="#334155"/><text x="39.0" y="218.1" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">4</text>
+<text x="53.0" y="218.5" font-size="10.8" fill="#16232A" font-weight="bold">Publish the profile</text>
+<text x="53.0" y="232.0" font-size="9.3" fill="#5F707A" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">Float32MultiArray</text>
+<text x="208.0" y="218.0" font-size="9.6" fill="#16232A"><tspan fill="#5F707A">on </tspan><tspan font-family="DejaVu Sans Mono, Consolas, Menlo, monospace" fill="#0C3A40">/profile/right_hip_extension</tspan><tspan fill="#5F707A">, every 20 ms</tspan></text>
+<rect x="208.0" y="225.0" width="25.6" height="17" fill="#E9EAFB" stroke="#9FB0B9" stroke-width="0.7"/>
+<text x="220.8" y="237.0" font-size="9.4" fill="#16232A" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">0</text>
+<path d="M210.0 246.0 v3 h21.6 v-3" fill="none" stroke="#8796A0" stroke-width="0.8"/>
+<text x="220.8" y="258.0" font-size="9.2" fill="#5F707A" text-anchor="middle">k</text>
+<rect x="233.6" y="225.0" width="25.6" height="17" fill="#E2EEF7" stroke="#9FB0B9" stroke-width="0.7"/>
+<text x="246.4" y="237.0" font-size="9.4" fill="#16232A" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">1</text>
+<path d="M235.6 246.0 v3 h21.6 v-3" fill="none" stroke="#8796A0" stroke-width="0.8"/>
+<text x="246.4" y="258.0" font-size="9.2" fill="#5F707A" text-anchor="middle">type</text>
+<rect x="259.2" y="225.0" width="25.6" height="17" fill="#E2EEF7" stroke="#9FB0B9" stroke-width="0.7"/>
+<text x="272.0" y="237.0" font-size="9.4" fill="#16232A" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">50</text>
+<path d="M261.2 246.0 v3 h21.6 v-3" fill="none" stroke="#8796A0" stroke-width="0.8"/>
+<text x="272.0" y="258.0" font-size="9.2" fill="#5F707A" text-anchor="middle">start</text>
+<rect x="284.8" y="225.0" width="25.6" height="17" fill="#FFF3DF" stroke="#9FB0B9" stroke-width="0.7"/>
+<text x="297.6" y="237.0" font-size="9.4" fill="#16232A" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">50</text>
+<rect x="310.4" y="225.0" width="25.6" height="17" fill="#FFF3DF" stroke="#9FB0B9" stroke-width="0.7"/>
+<text x="323.2" y="237.0" font-size="9.4" fill="#16232A" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">20</text>
+<rect x="336.0" y="225.0" width="25.6" height="17" fill="#FFF3DF" stroke="#9FB0B9" stroke-width="0.7"/>
+<text x="348.8" y="237.0" font-size="9.4" fill="#16232A" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">200</text>
+<rect x="361.6" y="225.0" width="25.6" height="17" fill="#FFF3DF" stroke="#9FB0B9" stroke-width="0.7"/>
+<text x="374.4" y="237.0" font-size="9.4" fill="#16232A" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">300</text>
+<rect x="387.2" y="225.0" width="25.6" height="17" fill="#FFF3DF" stroke="#9FB0B9" stroke-width="0.7"/>
+<text x="400.0" y="237.0" font-size="9.4" fill="#16232A" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">400</text>
+<rect x="412.8" y="225.0" width="25.6" height="17" fill="#FFF3DF" stroke="#9FB0B9" stroke-width="0.7"/>
+<text x="425.6" y="237.0" font-size="9.4" fill="#16232A" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">450</text>
+<rect x="438.4" y="225.0" width="25.6" height="17" fill="#FFF3DF" stroke="#9FB0B9" stroke-width="0.7"/>
+<text x="451.2" y="237.0" font-size="9.4" fill="#16232A" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">600</text>
+<rect x="464.0" y="225.0" width="25.6" height="17" fill="#FFF3DF" stroke="#9FB0B9" stroke-width="0.7"/>
+<text x="476.8" y="237.0" font-size="9.4" fill="#16232A" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">250</text>
+<rect x="489.6" y="225.0" width="25.6" height="17" fill="#FFF3DF" stroke="#9FB0B9" stroke-width="0.7"/>
+<text x="502.4" y="237.0" font-size="9.4" fill="#16232A" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">800</text>
+<rect x="515.2" y="225.0" width="25.6" height="17" fill="#FFF3DF" stroke="#9FB0B9" stroke-width="0.7"/>
+<text x="528.0" y="237.0" font-size="9.4" fill="#16232A" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">20</text>
+<path d="M286.8 246.0 v3 h252.0 v-3" fill="none" stroke="#8796A0" stroke-width="0.8"/>
+<text x="412.8" y="258.0" font-size="9.2" fill="#5F707A" text-anchor="middle">five waypoint pairs</text>
+<rect x="540.8" y="225.0" width="25.6" height="17" fill="#E2EEF7" stroke="#9FB0B9" stroke-width="0.7"/>
+<text x="553.6" y="237.0" font-size="9.4" fill="#16232A" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">800</text>
+<path d="M542.8 246.0 v3 h21.6 v-3" fill="none" stroke="#8796A0" stroke-width="0.8"/>
+<text x="553.6" y="258.0" font-size="9.2" fill="#5F707A" text-anchor="middle">end</text>
+<rect x="566.4" y="225.0" width="25.6" height="17" fill="#FBE7EA" stroke="#9FB0B9" stroke-width="0.7"/>
+<text x="579.2" y="237.0" font-size="9.4" fill="#16232A" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">0</text>
+<path d="M568.4 246.0 v3 h21.6 v-3" fill="none" stroke="#8796A0" stroke-width="0.8"/>
+<text x="579.2" y="258.0" font-size="9.2" fill="#5F707A" text-anchor="middle">e-stop</text>
+<text x="602.0" y="237.0" font-size="9.3" fill="#5F707A">k = 0: Deployment</text>
+<text x="602.0" y="250.0" font-size="9.3" fill="#5F707A">type 1: list profile</text>
+<circle cx="39.0" cy="278.5" r="8.5" fill="#334155"/><text x="39.0" y="282.1" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">5</text>
+<text x="53.0" y="282.5" font-size="10.8" fill="#16232A" font-weight="bold">Play the profile</text>
+<text x="53.0" y="296.0" font-size="9.3" fill="#5F707A">rate 50 Hz</text>
+<rect x="208.0" y="274.0" width="159.4" height="12.9" rx="2.5" fill="#EAF1F4"/><text x="211.0" y="283.0" font-size="9.8" fill="#0C3A40" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">/right_hip_extension_start</text>
+<text x="373.4" y="283.0" font-size="10.2" fill="#16232A"><tspan>= 1 starts the active profile: </tspan><tspan font-style="italic">t</tspan><tspan> = 0</tspan></text>
+<rect x="208.0" y="290.0" width="118.0" height="30" fill="#EEF2F5" stroke="#FFFFFF" stroke-width="2"/>
+<text x="215.0" y="302.0" font-size="9.6" fill="#16232A"><tspan font-style="italic">t</tspan><tspan> &lt; start</tspan></text>
+<text x="215.0" y="315.0" font-size="9.4" fill="#5F707A" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">default_output</text>
+<rect x="326.0" y="290.0" width="150.0" height="30" fill="#E3F3F1" stroke="#FFFFFF" stroke-width="2"/>
+<text x="333.0" y="302.0" font-size="9.6" fill="#16232A"><tspan>start ≤ </tspan><tspan font-style="italic">t</tspan><tspan> ≤ end</tspan></text>
+<text x="333.0" y="315.0" font-size="9.4" fill="#0F766E" font-weight="bold" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">next_point(t)</text>
+<rect x="476.0" y="290.0" width="196.0" height="30" fill="#EEF2F5" stroke="#FFFFFF" stroke-width="2"/>
+<text x="483.0" y="302.0" font-size="9.6" fill="#16232A"><tspan font-style="italic">t</tspan><tspan> &gt; end</tspan></text>
+<text x="483.0" y="315.0" font-size="9.4" fill="#5F707A">default_output, profile ends</text>
+<text x="208.0" y="334.0" font-size="9.4" fill="#5F707A">A profile that arrives while one is playing waits in a buffer and is used from the next gait event on.</text>
+<circle cx="39.0" cy="358.5" r="8.5" fill="#334155"/><text x="39.0" y="362.1" font-size="10" fill="#FFFFFF" font-weight="bold" text-anchor="middle">6</text>
+<text x="53.0" y="362.5" font-size="10.8" fill="#16232A" font-weight="bold">Drive the actuator</text>
+<text x="53.0" y="376.0" font-size="9.3" fill="#5F707A" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">Float32</text>
+<rect x="208.0" y="354.0" width="112.2" height="12.9" rx="2.5" fill="#EAF1F4"/><text x="211.0" y="363.0" font-size="9.8" fill="#0C3A40" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">/right/hip_ppr_cmd</text>
+<text x="326.2" y="363.0" font-size="10.2" fill="#16232A"><tspan>→ actuation hub, </tspan><tspan font-family="DejaVu Sans Mono, Consolas, Menlo, monospace" fill="#0C3A40">ACT_FESTO_VEAB_L26</tspan></text>
+<text x="208.0" y="379.0" font-size="9.4" fill="#5F707A">pressure set-point in kPa; its course over time is plotted in (c)</text>
+<line x1="39.0" y1="48.0" x2="39.0" y2="68.0" stroke="#9FB0B9" stroke-width="1.2"/><polygon points="35.4,67.0 42.6,67.0 39.0,73.0" fill="#9FB0B9"/>
+<line x1="39.0" y1="92.0" x2="39.0" y2="148.0" stroke="#9FB0B9" stroke-width="1.2"/><polygon points="35.4,147.0 42.6,147.0 39.0,153.0" fill="#9FB0B9"/>
+<line x1="39.0" y1="172.0" x2="39.0" y2="200.0" stroke="#9FB0B9" stroke-width="1.2"/><polygon points="35.4,199.0 42.6,199.0 39.0,205.0" fill="#9FB0B9"/>
+<line x1="39.0" y1="224.0" x2="39.0" y2="264.0" stroke="#9FB0B9" stroke-width="1.2"/><polygon points="35.4,263.0 42.6,263.0 39.0,269.0" fill="#9FB0B9"/>
+<line x1="39.0" y1="288.0" x2="39.0" y2="344.0" stroke="#9FB0B9" stroke-width="1.2"/><polygon points="35.4,343.0 42.6,343.0 39.0,349.0" fill="#9FB0B9"/>
+<path d="M10 30.0 h-5 v208.0 h5" fill="none" stroke="#0F766E" stroke-width="1.3"/><text x="0.0" y="0.0" font-size="9.4" fill="#0F766E" font-weight="bold" text-anchor="middle" transform="translate(-2 134.0) rotate(-90)">profile node</text>
+<path d="M10 270.0 h-5 v98.0 h5" fill="none" stroke="#4338CA" stroke-width="1.3"/><text x="0.0" y="0.0" font-size="9.4" fill="#4338CA" font-weight="bold" text-anchor="middle" transform="translate(-2 319.0) rotate(-90)">planner node</text></g>
+<line x1="0" y1="753.0" x2="720" y2="753.0" stroke="#C9D5DB" stroke-width="0.8"/>
+<g id="panel-c" transform="translate(0 764.0)"><text x="0.0" y="15.0" font-size="12.2" fill="#16232A"><tspan font-weight="bold">(c)</tspan><tspan dx="6" font-weight="bold">The five waypoints of (b), interpolated by two planners</tspan></text>
+<line x1="50.0" y1="196.0" x2="712.0" y2="196.0" stroke="#E3E9ED" stroke-width="0.7"/>
+<text x="44.0" y="199.5" font-size="9.5" fill="#5F707A" text-anchor="end">0</text>
+<line x1="50.0" y1="164.8" x2="712.0" y2="164.8" stroke="#E3E9ED" stroke-width="0.7"/>
+<text x="44.0" y="168.3" font-size="9.5" fill="#5F707A" text-anchor="end">100</text>
+<line x1="50.0" y1="133.6" x2="712.0" y2="133.6" stroke="#E3E9ED" stroke-width="0.7"/>
+<text x="44.0" y="137.1" font-size="9.5" fill="#5F707A" text-anchor="end">200</text>
+<line x1="50.0" y1="102.4" x2="712.0" y2="102.4" stroke="#E3E9ED" stroke-width="0.7"/>
+<text x="44.0" y="105.9" font-size="9.5" fill="#5F707A" text-anchor="end">300</text>
+<line x1="50.0" y1="71.2" x2="712.0" y2="71.2" stroke="#E3E9ED" stroke-width="0.7"/>
+<text x="44.0" y="74.7" font-size="9.5" fill="#5F707A" text-anchor="end">400</text>
+<line x1="50.0" y1="40.0" x2="712.0" y2="40.0" stroke="#E3E9ED" stroke-width="0.7"/>
+<text x="44.0" y="43.5" font-size="9.5" fill="#5F707A" text-anchor="end">500</text>
+<text x="14.0" y="118.0" font-size="9.8" fill="#5F707A" text-anchor="middle" transform="rotate(-90 14 118.0)">set-point (kPa)</text>
+<line x1="86.8" y1="149.2" x2="86.8" y2="196.0" stroke="#9FB0B9" stroke-width="0.8" stroke-dasharray="3 3"/>
+<text x="86.8" y="144.2" font-size="9.2" fill="#5F707A" text-anchor="middle">start</text>
+<line x1="638.4" y1="149.2" x2="638.4" y2="196.0" stroke="#9FB0B9" stroke-width="0.8" stroke-dasharray="3 3"/>
+<text x="638.4" y="144.2" font-size="9.2" fill="#5F707A" text-anchor="middle">end</text>
+<polyline points="50.0,189.8 51.8,189.8 53.7,189.8 55.5,189.8 57.4,189.8 59.2,189.8 61.0,189.8 62.9,189.8 64.7,189.8 66.5,189.8 68.4,189.8 70.2,189.8 72.1,189.8 73.9,189.8 75.7,189.8 77.6,189.8 79.4,189.8 81.3,189.8 83.1,189.8 84.9,189.8 86.8,189.8 88.6,188.3 90.5,186.8 92.3,185.4 94.1,183.9 96.0,182.5 97.8,181.0 99.7,179.6 101.5,178.1 103.3,176.7 105.2,175.2 107.0,173.7 108.8,172.3 110.7,170.8 112.5,169.4 114.4,167.9 116.2,166.5 118.0,165.0 119.9,163.6 121.7,162.1 123.6,160.6 125.4,159.2 127.2,157.7 129.1,156.3 130.9,154.8 132.8,153.4 134.6,151.9 136.4,150.4 138.3,149.0 140.1,147.5 141.9,146.1 143.8,144.6 145.6,143.2 147.5,141.7 149.3,140.3 151.1,138.8 153.0,137.3 154.8,135.9 156.7,134.4 158.5,133.0 160.3,131.5 162.2,130.1 164.0,128.6 165.8,127.2 167.7,125.7 169.5,124.2 171.4,122.8 173.2,121.3 175.0,119.9 176.9,118.4 178.7,117.0 180.6,115.5 182.4,114.0 184.2,112.6 186.1,111.1 187.9,109.7 189.8,108.2 191.6,106.8 193.4,105.3 195.3,103.9 197.1,102.4 199.0,101.8 200.8,101.2 202.6,100.6 204.5,100.1 206.3,99.5 208.1,98.9 210.0,98.3 211.8,97.7 213.7,97.1 215.5,96.6 217.3,96.0 219.2,95.4 221.0,94.8 222.9,94.2 224.7,93.6 226.5,93.0 228.4,92.5 230.2,91.9 232.1,91.3 233.9,90.7 235.7,90.1 237.6,89.5 239.4,88.9 241.2,88.4 243.1,87.8 244.9,87.2 246.8,86.6 248.6,86.0 250.4,85.4 252.3,84.8 254.1,84.3 256.0,83.7 257.8,83.1 259.6,82.5 261.5,81.9 263.3,81.3 265.1,80.8 267.0,80.2 268.8,79.6 270.7,79.0 272.5,78.4 274.3,77.8 276.2,77.2 278.0,76.7 279.9,76.1 281.7,75.5 283.5,74.9 285.4,74.3 287.2,73.7 289.1,73.2 290.9,72.6 292.7,72.0 294.6,71.4 296.4,70.8 298.2,70.2 300.1,69.6 301.9,69.1 303.8,68.5 305.6,67.9 307.4,67.3 309.3,66.7 311.1,66.1 313.0,65.5 314.8,65.0 316.6,64.4 318.5,63.8 320.3,63.2 322.2,62.6 324.0,62.0 325.8,61.4 327.7,60.9 329.5,60.3 331.3,59.7 333.2,59.1 335.0,58.5 336.9,57.9 338.7,57.4 340.5,56.8 342.4,56.2 344.2,55.6 346.1,56.4 347.9,57.2 349.7,57.9 351.6,58.7 353.4,59.5 355.3,60.3 357.1,61.1 358.9,61.8 360.8,62.6 362.6,63.4 364.4,64.2 366.3,65.0 368.1,65.7 370.0,66.5 371.8,67.3 373.6,68.1 375.5,68.9 377.3,69.6 379.2,70.4 381.0,71.2 382.8,72.0 384.7,72.8 386.5,73.5 388.4,74.3 390.2,75.1 392.0,75.9 393.9,76.7 395.7,77.4 397.6,78.2 399.4,79.0 401.2,79.8 403.1,80.6 404.9,81.3 406.7,82.1 408.6,82.9 410.4,83.7 412.3,84.5 414.1,85.2 415.9,86.0 417.8,86.8 419.6,87.6 421.5,88.4 423.3,89.1 425.1,89.9 427.0,90.7 428.8,91.5 430.6,92.3 432.5,93.0 434.3,93.8 436.2,94.6 438.0,95.4 439.8,96.2 441.7,96.9 443.5,97.7 445.4,98.5 447.2,99.3 449.0,100.1 450.9,100.8 452.7,101.6 454.6,102.4 456.4,103.2 458.2,104.0 460.1,104.7 461.9,105.5 463.8,106.3 465.6,107.1 467.4,107.9 469.3,108.6 471.1,109.4 472.9,110.2 474.8,111.0 476.6,111.8 478.5,112.5 480.3,113.3 482.1,114.1 484.0,114.9 485.8,115.7 487.7,116.4 489.5,117.2 491.3,118.0 493.2,118.9 495.0,119.8 496.9,120.7 498.7,121.6 500.5,122.5 502.4,123.4 504.2,124.3 506.0,125.2 507.9,126.1 509.7,127.0 511.6,127.9 513.4,128.8 515.2,129.7 517.1,130.6 518.9,131.5 520.8,132.4 522.6,133.2 524.4,134.1 526.3,135.0 528.1,135.9 530.0,136.8 531.8,137.7 533.6,138.6 535.5,139.5 537.3,140.4 539.1,141.3 541.0,142.2 542.8,143.1 544.7,144.0 546.5,144.9 548.3,145.8 550.2,146.7 552.0,147.6 553.9,148.5 555.7,149.4 557.5,150.3 559.4,151.2 561.2,152.1 563.1,153.0 564.9,153.9 566.7,154.8 568.6,155.7 570.4,156.6 572.2,157.5 574.1,158.4 575.9,159.3 577.8,160.2 579.6,161.1 581.4,162.0 583.3,162.8 585.1,163.7 587.0,164.6 588.8,165.5 590.6,166.4 592.5,167.3 594.3,168.2 596.1,169.1 598.0,170.0 599.8,170.9 601.7,171.8 603.5,172.7 605.3,173.6 607.2,174.5 609.0,175.4 610.9,176.3 612.7,177.2 614.5,178.1 616.4,179.0 618.2,179.9 620.1,180.8 621.9,181.7 623.7,182.6 625.6,183.5 627.4,184.4 629.2,185.3 631.1,186.2 632.9,187.1 634.8,188.0 636.6,188.9 638.4,189.8 640.3,189.8 642.1,189.8 644.0,189.8 645.8,189.8 647.6,189.8 649.5,189.8 651.3,189.8 653.2,189.8 655.0,189.8 656.8,189.8 658.7,189.8 660.5,189.8 662.4,189.8 664.2,189.8 666.0,189.8 667.9,189.8 669.7,189.8 671.5,189.8 673.4,189.8 675.2,189.8 677.1,189.8 678.9,189.8 680.7,189.8 682.6,189.8 684.4,189.8 686.3,189.8 688.1,189.8 689.9,189.8 691.8,189.8 693.6,189.8 695.4,189.8 697.3,189.8 699.1,189.8 701.0,189.8 702.8,189.8 704.6,189.8 706.5,189.8 708.3,189.8 710.2,189.8 712.0,189.8" fill="none" stroke="#334155" stroke-width="1.8" stroke-linejoin="round"/>
+<polyline points="50.0,189.8 51.8,189.8 53.7,189.8 55.5,189.8 57.4,189.8 59.2,189.8 61.0,189.8 62.9,189.8 64.7,189.8 66.5,189.8 68.4,189.8 70.2,189.8 72.1,189.8 73.9,189.8 75.7,189.8 77.6,189.8 79.4,189.8 81.3,189.8 83.1,189.8 84.9,189.8 86.8,189.8 88.6,187.9 90.5,186.1 92.3,184.3 94.1,182.5 96.0,180.7 97.8,178.9 99.7,177.1 101.5,175.3 103.3,173.5 105.2,171.8 107.0,170.0 108.8,168.3 110.7,166.5 112.5,164.8 114.4,163.1 116.2,161.4 118.0,159.7 119.9,158.0 121.7,156.3 123.6,154.6 125.4,153.0 127.2,151.3 129.1,149.7 130.9,148.1 132.8,146.5 134.6,144.9 136.4,143.4 138.3,141.8 140.1,140.3 141.9,138.8 143.8,137.2 145.6,135.8 147.5,134.3 149.3,132.8 151.1,131.4 153.0,130.0 154.8,128.6 156.7,127.2 158.5,125.8 160.3,124.5 162.2,123.2 164.0,121.9 165.8,120.6 167.7,119.3 169.5,118.1 171.4,116.9 173.2,115.7 175.0,114.5 176.9,113.4 178.7,112.2 180.6,111.1 182.4,110.1 184.2,109.0 186.1,108.0 187.9,107.0 189.8,106.0 191.6,105.1 193.4,104.2 195.3,103.3 197.1,102.4 199.0,101.5 200.8,100.7 202.6,99.8 204.5,99.0 206.3,98.1 208.1,97.3 210.0,96.4 211.8,95.6 213.7,94.7 215.5,93.9 217.3,93.0 219.2,92.2 221.0,91.3 222.9,90.5 224.7,89.6 226.5,88.8 228.4,88.0 230.2,87.1 232.1,86.3 233.9,85.5 235.7,84.7 237.6,83.9 239.4,83.1 241.2,82.3 243.1,81.5 244.9,80.7 246.8,79.9 248.6,79.1 250.4,78.4 252.3,77.6 254.1,76.9 256.0,76.1 257.8,75.4 259.6,74.6 261.5,73.9 263.3,73.2 265.1,72.5 267.0,71.8 268.8,71.2 270.7,70.5 272.5,69.8 274.3,69.2 276.2,68.5 278.0,67.9 279.9,67.3 281.7,66.7 283.5,66.1 285.4,65.5 287.2,65.0 289.1,64.4 290.9,63.9 292.7,63.4 294.6,62.9 296.4,62.4 298.2,61.9 300.1,61.4 301.9,61.0 303.8,60.5 305.6,60.1 307.4,59.7 309.3,59.3 311.1,59.0 313.0,58.6 314.8,58.3 316.6,58.0 318.5,57.7 320.3,57.4 322.2,57.1 324.0,56.9 325.8,56.7 327.7,56.5 329.5,56.3 331.3,56.1 333.2,56.0 335.0,55.9 336.9,55.8 338.7,55.7 340.5,55.6 342.4,55.6 344.2,55.6 346.1,55.6 347.9,55.7 349.7,55.8 351.6,55.9 353.4,56.1 355.3,56.3 357.1,56.5 358.9,56.7 360.8,57.0 362.6,57.4 364.4,57.7 366.3,58.1 368.1,58.5 370.0,59.0 371.8,59.5 373.6,60.0 375.5,60.5 377.3,61.0 379.2,61.6 381.0,62.2 382.8,62.8 384.7,63.5 386.5,64.2 388.4,64.9 390.2,65.6 392.0,66.3 393.9,67.1 395.7,67.9 397.6,68.7 399.4,69.5 401.2,70.3 403.1,71.2 404.9,72.0 406.7,72.9 408.6,73.8 410.4,74.7 412.3,75.6 414.1,76.6 415.9,77.5 417.8,78.5 419.6,79.4 421.5,80.4 423.3,81.4 425.1,82.4 427.0,83.4 428.8,84.4 430.6,85.4 432.5,86.4 434.3,87.4 436.2,88.5 438.0,89.5 439.8,90.5 441.7,91.6 443.5,92.6 445.4,93.7 447.2,94.7 449.0,95.7 450.9,96.8 452.7,97.8 454.6,98.9 456.4,99.9 458.2,100.9 460.1,101.9 461.9,103.0 463.8,104.0 465.6,105.0 467.4,106.0 469.3,107.0 471.1,108.0 472.9,108.9 474.8,109.9 476.6,110.8 478.5,111.8 480.3,112.7 482.1,113.6 484.0,114.5 485.8,115.4 487.7,116.3 489.5,117.2 491.3,118.0 493.2,118.8 495.0,119.7 496.9,120.5 498.7,121.4 500.5,122.2 502.4,123.0 504.2,123.9 506.0,124.7 507.9,125.6 509.7,126.4 511.6,127.3 513.4,128.1 515.2,129.0 517.1,129.8 518.9,130.7 520.8,131.6 522.6,132.4 524.4,133.3 526.3,134.2 528.1,135.0 530.0,135.9 531.8,136.8 533.6,137.6 535.5,138.5 537.3,139.4 539.1,140.2 541.0,141.1 542.8,142.0 544.7,142.9 546.5,143.8 548.3,144.6 550.2,145.5 552.0,146.4 553.9,147.3 555.7,148.2 557.5,149.1 559.4,150.0 561.2,150.9 563.1,151.8 564.9,152.7 566.7,153.6 568.6,154.5 570.4,155.4 572.2,156.3 574.1,157.2 575.9,158.1 577.8,159.0 579.6,159.9 581.4,160.8 583.3,161.7 585.1,162.6 587.0,163.6 588.8,164.5 590.6,165.4 592.5,166.3 594.3,167.2 596.1,168.2 598.0,169.1 599.8,170.0 601.7,170.9 603.5,171.9 605.3,172.8 607.2,173.7 609.0,174.6 610.9,175.6 612.7,176.5 614.5,177.5 616.4,178.4 618.2,179.3 620.1,180.3 621.9,181.2 623.7,182.2 625.6,183.1 627.4,184.1 629.2,185.0 631.1,185.9 632.9,186.9 634.8,187.9 636.6,188.8 638.4,189.8 640.3,189.8 642.1,189.8 644.0,189.8 645.8,189.8 647.6,189.8 649.5,189.8 651.3,189.8 653.2,189.8 655.0,189.8 656.8,189.8 658.7,189.8 660.5,189.8 662.4,189.8 664.2,189.8 666.0,189.8 667.9,189.8 669.7,189.8 671.5,189.8 673.4,189.8 675.2,189.8 677.1,189.8 678.9,189.8 680.7,189.8 682.6,189.8 684.4,189.8 686.3,189.8 688.1,189.8 689.9,189.8 691.8,189.8 693.6,189.8 695.4,189.8 697.3,189.8 699.1,189.8 701.0,189.8 702.8,189.8 704.6,189.8 706.5,189.8 708.3,189.8 710.2,189.8 712.0,189.8" fill="none" stroke="#0F766E" stroke-width="2.3" stroke-linejoin="round"/>
+<circle cx="86.8" cy="189.8" r="3.8" fill="#FFFFFF" stroke="#16232A" stroke-width="1.5"/>
+<circle cx="197.1" cy="102.4" r="3.8" fill="#FFFFFF" stroke="#16232A" stroke-width="1.5"/>
+<circle cx="344.2" cy="55.6" r="3.8" fill="#FFFFFF" stroke="#16232A" stroke-width="1.5"/>
+<circle cx="491.3" cy="118.0" r="3.8" fill="#FFFFFF" stroke="#16232A" stroke-width="1.5"/>
+<circle cx="638.4" cy="189.8" r="3.8" fill="#FFFFFF" stroke="#16232A" stroke-width="1.5"/>
+<text x="682.6" y="183.8" font-size="9.2" fill="#5F707A" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">default_output</text>
+<line x1="50.0" y1="196.0" x2="712.0" y2="196.0" stroke="#8796A0" stroke-width="1"/>
+<line x1="50.0" y1="196.0" x2="50.0" y2="199.0" stroke="#8796A0" stroke-width="1"/>
+<text x="50.0" y="209.0" font-size="9.5" fill="#5F707A" text-anchor="middle">0</text>
+<line x1="123.6" y1="196.0" x2="123.6" y2="199.0" stroke="#8796A0" stroke-width="1"/>
+<text x="123.6" y="209.0" font-size="9.5" fill="#5F707A" text-anchor="middle">100</text>
+<line x1="197.1" y1="196.0" x2="197.1" y2="199.0" stroke="#8796A0" stroke-width="1"/>
+<text x="197.1" y="209.0" font-size="9.5" fill="#5F707A" text-anchor="middle">200</text>
+<line x1="270.7" y1="196.0" x2="270.7" y2="199.0" stroke="#8796A0" stroke-width="1"/>
+<text x="270.7" y="209.0" font-size="9.5" fill="#5F707A" text-anchor="middle">300</text>
+<line x1="344.2" y1="196.0" x2="344.2" y2="199.0" stroke="#8796A0" stroke-width="1"/>
+<text x="344.2" y="209.0" font-size="9.5" fill="#5F707A" text-anchor="middle">400</text>
+<line x1="417.8" y1="196.0" x2="417.8" y2="199.0" stroke="#8796A0" stroke-width="1"/>
+<text x="417.8" y="209.0" font-size="9.5" fill="#5F707A" text-anchor="middle">500</text>
+<line x1="491.3" y1="196.0" x2="491.3" y2="199.0" stroke="#8796A0" stroke-width="1"/>
+<text x="491.3" y="209.0" font-size="9.5" fill="#5F707A" text-anchor="middle">600</text>
+<line x1="564.9" y1="196.0" x2="564.9" y2="199.0" stroke="#8796A0" stroke-width="1"/>
+<text x="564.9" y="209.0" font-size="9.5" fill="#5F707A" text-anchor="middle">700</text>
+<line x1="638.4" y1="196.0" x2="638.4" y2="199.0" stroke="#8796A0" stroke-width="1"/>
+<text x="638.4" y="209.0" font-size="9.5" fill="#5F707A" text-anchor="middle">800</text>
+<line x1="712.0" y1="196.0" x2="712.0" y2="199.0" stroke="#8796A0" stroke-width="1"/>
+<text x="712.0" y="209.0" font-size="9.5" fill="#5F707A" text-anchor="middle">900</text>
+<text x="381.0" y="222.0" font-size="9.5" fill="#5F707A" text-anchor="middle">time since the gait event, t (ms)</text>
+<rect x="487.7" y="44.0" width="224.3" height="58" rx="4" fill="#FFFFFF" fill-opacity="0.92" stroke="#C9D5DB" stroke-width="0.8"/>
+<line x1="495.7" y1="53.0" x2="513.7" y2="53.0" stroke="#334155" stroke-width="1.8"/>
+<text x="519.7" y="56.0" font-size="9.6" fill="#16232A" font-weight="bold" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">LinearInterpolatedList</text>
+<text x="519.7" y="68.0" font-size="9.2" fill="#5F707A">straight segments, corners at waypoints</text>
+<line x1="495.7" y1="81.0" x2="513.7" y2="81.0" stroke="#0F766E" stroke-width="2.3"/>
+<text x="519.7" y="84.0" font-size="9.6" fill="#16232A" font-weight="bold" font-family="DejaVu Sans Mono, Consolas, Menlo, monospace">PCHIPInterpolatedList</text>
+<text x="519.7" y="96.0" font-size="9.2" fill="#5F707A">smooth, no overshoot</text></g>
+</svg>
+</div><div class="cap"><b>Fig. S1.</b> ExoCore elements, computed with the shipped plug-ins. (a) <code>HeelStrike</code> on an FSR signal (window 10 samples, fraction 0.3): an event needs <i>k</i>&nbsp;=&nbsp;3 consecutive samples above the threshold while the detector is armed, and after an event it re-arms only once a full window lies below the threshold, so short spikes and chatter are rejected. The shipped <code>gait_events.yaml</code> uses <code>history_size: 5</code> and fraction 0.2, for which one sample above the threshold is enough; the zero-crossing detectors apply the same rule to the sign of the signal. (b) One profile node and one motion planner node turn the walking speed into actuator set-points; the lookup table is an example in the row format of <code>Builder_Nwaypoint_List</code>. (c) The five waypoint pairs of (b) as interpolated by <code>LinearInterpolatedList</code> and <code>PCHIPInterpolatedList</code>; the PCHIP curve is the plug-in's interpolation with its inverted length check corrected (Known limitations of v1.0).</div>
+
+<h2 id="e-mplanner-yaml-motion-planners">E. mplanner.yaml: motion planners</h2>
+<div class="cb"><div class="codehead">~/exo_stack_resources/config/mplanner.yaml</div><pre class="code">planners:
+  <span class="chg">right_hip_extension<sup>1</sup></span>:
+    gait_event_topic: <span class="chg">"/right_hip_extension_start"<sup>2</sup></span>
+    planner_algorithm: <span class="chg">"LinearInterpolatedList"<sup>3</sup></span>
+    profile_type: <span class="chg">"List"<sup>4</sup></span>
+    profile_topic: <span class="chg">"/profile/right_hip_extension"<sup>5</sup></span>
+    output_topic: <span class="chg">"/right/hip_ppr_cmd"<sup>6</sup></span>
+    approach: <span class="chg">"time_based"<sup>7</sup></span>
+    rate: <span class="chg">50<sup>8</sup></span>
+    default_output: <span class="chg">20.0<sup>9</sup></span></pre></div><table class="legend"><tr><td class="k"><span class="mk">1</span></td><td>planner key: node name; referenced by <code>planner_name</code> in <code>profile.yaml</code></td></tr><tr><td class="k"><span class="mk">2</span></td><td>event that (re)starts the profile: an <code>output_topic</code> from <code>gait_events.yaml</code></td></tr><tr><td class="k"><span class="mk">3</span></td><td>planner plug-in in <code>planner/</code>; its name ends in <code>List</code> or <code>Function</code>; interpolation compared in Fig. S1c</td></tr><tr><td class="k"><span class="mk">4</span></td><td><code>List</code> or <code>Function</code>: must match the suffix of the planner and of the builder</td></tr><tr><td class="k"><span class="mk">5</span></td><td>any unique name; the profile node publishes the profile here</td></tr><tr><td class="k"><span class="mk">6</span></td><td><code>Float32</code> command to the actuator: same topic as <code>setupActuation</code></td></tr><tr><td class="k"><span class="mk">7</span></td><td><code>time_based</code>: t = milliseconds since the event · <code>gait_phase_based</code>: t = latest value on <code>gait_phase_topic</code> (add that key)</td></tr><tr><td class="k"><span class="mk">8</span></td><td>command publication rate, Hz</td></tr><tr><td class="k"><span class="mk">9</span></td><td>command when idle, before the profile starts, after it ends, or on emergency stop</td></tr></table><div class="table-wrap"><table class="t"><colgroup><col style="width:40%"><col style="width:20%"><col style="width:40%"></colgroup><tr><th>Topic (created per planner)</th><th>Type</th><th>Use</th></tr><tr><td><code>/&lt;planner&gt;/manual_mode</code></td><td>Int32</td><td>1 = manual mode on, 0 = off (profiles are reset)</td></tr><tr><td><code>/&lt;planner&gt;/manual_cmd</code></td><td>Float32</td><td>in manual mode the output is <code>default_output + manual_cmd</code></td></tr><tr><td><code>/&lt;planner&gt;/profile_status</code></td><td>Float32MultiArray</td><td>[profile number, gait-cycle number], at every gait event</td></tr></table></div>
+
+<h2 id="f-profile-yaml-where-the-assistance-profile-comes-from">F. profile.yaml: where the assistance profile comes from</h2>
+<p>Each profile feeds one planner. In <b>Deployment</b> mode the parameters come from a lookup table indexed by walking
+speed (and optionally intent); in <b>HIL</b> mode they come from an optimizer that is scored by a cost function.</p>
+<div class="table-wrap"><table class="t"><colgroup><col style="width:30%"><col style="width:15%"><col style="width:55%"></colgroup><tr><th>Key</th><th>Mode</th><th>Meaning</th></tr><tr><td><code>planner_name</code></td><td>both</td><td>planner key in <code>mplanner.yaml</code></td></tr><tr><td><code>mode</code></td><td>both</td><td><code>Deployment</code> or <code>HIL</code></td></tr><tr><td><code>profile_builder_algo</code></td><td>both</td><td>builder in <code>algo/builder/</code> (table below); suffix must match the planner</td></tr><tr><td><code>speed_required</code>, <code>speed_topic</code></td><td>Deployment</td><td>use walking speed (Float32 topic) to index the table</td></tr><tr><td><code>intent_required</code>, <code>intent_topic</code></td><td>Deployment</td><td>also index by intent (Float32); intent 0 triggers an emergency stop</td></tr><tr><td><code>lookup_algo</code>, <code>lookup_table</code></td><td>Deployment</td><td>plug-in in <code>algo/lookup_algo/</code>; JSON file in <code>lookup_table/</code> (name without .json)</td></tr><tr><td><code>rate</code></td><td>Deployment</td><td>profile republication rate, Hz (default 50)</td></tr><tr><td><code>hil_algo</code></td><td>HIL</td><td>optimizer in <code>algo/hil_optimizer/</code> (upper-case name)</td></tr><tr><td><code>hil_output_topic</code></td><td>HIL</td><td>topic on which candidates are sent to the profile node (any unique name)</td></tr><tr><td><code>hil_hyperparams</code></td><td>HIL</td><td>optimizer settings (next table)</td></tr><tr><td><code>cost_algo</code>, <code>cost_params</code></td><td>HIL</td><td>cost plug-in in <code>algo/cost/</code>; list passed to its constructor</td></tr><tr><td><code>cost_topic</code></td><td>HIL</td><td>topic on which [profile number, cost] is returned (any unique name)</td></tr><tr><td><code>sensors</code></td><td>HIL</td><td><code>[hub, channel]</code> pairs given to the cost function, in this order</td></tr><tr><td><code>gait_cycles_to_skip</code>, <code>_to_consider</code></td><td>HIL</td><td>cycles discarded after each new candidate, then cycles averaged into one cost</td></tr><tr><td><code>external_sensors_topic</code></td><td>HIL, optional</td><td>Float32MultiArray stream (e.g. metabolic, EMG) used instead of internal sensors</td></tr><tr><td><code>additional_gait_marker_topic</code></td><td>HIL, optional</td><td>Int32 marker appended as an extra column for the cost function</td></tr></table></div><div class="table-wrap"><table class="t"><colgroup><col style="width:18%"><col style="width:82%"></colgroup><tr><th>Optimizer</th><th>hil_hyperparams</th></tr><tr><td><code>OPT_CMA_ES</code></td><td><code>mean</code> (start point), <code>bounds</code> ([[min,max],…]), <code>sigma</code>, <code>maximize</code>, <code>max_generations</code>, <code>population_size</code>, <code>n_max_resampling</code></td></tr><tr><td><code>OPT_BAYESIAN</code></td><td><code>pbounds</code> ({name: [min,max], …}; key order = parameter order), <code>maximize</code>, <code>max_iters</code>, <code>kind</code> (<code>ei</code>, <code>ucb</code>, <code>poi</code>), <code>xi</code>, <code>kappa</code>, <code>random_state</code></td></tr></table></div><div class="table-wrap"><table class="t"><colgroup><col style="width:30%"><col style="width:48%"><col style="width:22%"></colgroup><tr><th>Builder</th><th>Input values (from lookup table or optimizer)</th><th>Shape</th></tr><tr><td><code>Builder1_List</code></td><td>[start, peak_t, peak_value, end]</td><td>triangle</td></tr><tr><td><code>Builder2_List</code></td><td>[start, t1, v1, t2, v2, end]</td><td>trapezoid</td></tr><tr><td><code>Builder_Nwaypoint_List</code></td><td>[start, t1, v1, …, tN, vN, end]</td><td>any piecewise shape</td></tr><tr><td><code>Builder1_Function</code></td><td>[start, c0, c1, …, cn, end]</td><td>polynomial (Function planners); see <a href="reference.html#known-limitations-of-v1-0">App. A</a> for v1.0</td></tr></table></div><div class="box rule"><span class="bt">MATCH THE PARAMETER COUNT</span>The optimizer must produce exactly as many values as the builder expects, e.g. six for <code>Builder2_List</code>: six entries in <code>mean</code> and <code>bounds</code>, or six keys in <code>pbounds</code>. Times are in milliseconds for <code>time_based</code> planners and in gait-phase units for <code>gait_phase_based</code> ones. The List builders anchor the profile at their own default value (20) at the start and end times; this is independent of the planner's <code>default_output</code>.</div>
+<h2 id="g-lookup-tables">G. Lookup tables</h2>
+<div class="cb"><div class="codehead">lookup_table/speed_list_lookuptable_2.json  (speed only)</div><pre class="code">{ "3.5": [50.0, 200.0, 500.0, 600.0, 500.0, 800.0],          <span class="cm">← speed -&gt; builder inputs</span>
+  "4.0": [200.0, 300.0, 100.0, 500.0, 150.0, 800.0] }</pre></div><div class="cb"><div class="codehead">lookup_table/speed_intent_list_lookuptable_1.json  (intent and speed)</div><pre class="code">{ "0.0": [500.0, 600.0, 100.0, 800.0],                         <span class="cm">← intent -&gt; builder inputs ...</span>
+  "1.0": { "3.5": [500.0, 600.0, 100.0, 800.0],                <span class="cm">← ... or intent -&gt; speed -&gt; inputs</span>
+           "4.0": [400.0, 550.0, 150.0, 800.0] } }</pre></div>
+<p class="small">Fig. S1b follows one row of such a table to the encoded profile. <code>Lookup_Speed_Segmentwise</code> uses the nearest speed key (clamped at the ends);
+<code>Lookup_Speed_Interpolated</code> interpolates between keys; <code>Lookup_Speed_Intent_Segmentwise</code> reads the
+two-level table. Write keys exactly as floats (<code>"1.0"</code>, not <code>"1"</code>): incoming values are "
+"matched as text.</p>
+
+<h2 id="h-configuring-in-pase-configuration-tab">H. Configuring in PASE (Configuration tab)</h2>
+<p>The four panels edit the four YAML files, left to right. Lists of hubs, channels, events, planners and algorithms are
+filled from the saved files and from the plug-in folders, so you select rather than type.</p>
+<ol class="steps"><li><b>Sensors</b>: <i>+ Add Hub</i>; enter <i>Hub Name</i>, <i>Topic Name</i> and the channel names in <i>Sensors</i> (comma-separated, publication order); set <i>Slop time</i> and <i>Output topic</i>; press <b>Save YAML</b>.</li><li><b>Gait Events</b>: <i>+ Add Event</i>; set <i>Event Name</i>, <i>Input Topic Name</i>; choose hub and channel under <i>Select Sensors</i> (<i>+ Add Sensor</i> for more); pick the algorithm; fill <i>Parameters</i> and <i>Window Size</i>; set <i>Output Topic Name</i>; <b>Save YAML</b>.</li><li><b>Motion Planner</b>: <i>+ Add Planner</i>; choose the <i>Gait Event Topic</i> and <i>Planner Algorithm</i> from the lists; set <i>Profile Type</i>, <i>Profile Topic</i>, <i>Output Topic</i>, <i>Approach</i> (<code>time_based</code>; phase-based planners are set in the YAML file), <i>Rate</i>, <i>Default Output</i>; <b>Save YAML</b>.</li><li><b>Profile</b>: <i>+ Add Profile</i>; choose <i>Planner Name</i> and <i>Mode</i>. For <i>Deployment</i> set the builder, <i>Speed/Intent Required</i>, <i>Lookup Table</i>, <i>Lookup Algorithm</i>, <i>Rate</i>. For <i>HIL</i> choose the optimizer, add one <i>+ Add Dimension</i> row (<i>Mean / Lower Bound / Upper Bound</i>) per builder input, then under <i>Define Cost Function</i> set the cost algorithm, <i>Cost Params</i>, <i>Cost Topic</i>, <i>Sensors for Cost</i> and the gait cycles to skip and consider; <b>Save YAML</b>.</li></ol><div class="box tip"><span class="bt">SAVE FROM LEFT TO RIGHT</span>Saving a panel refreshes the lists of the panels to its right. A plug-in file you add to a folder appears in the corresponding list the next time PASE starts.</div><div class="shotfig" id="screen-s2-2-1" style="width:74%"><img src="images/screens/S2.2-1.png" alt="Sensors and Gait Events panels"><div class="cap"><b>Screenshot S2.2-1.</b> Sensors and Gait Events panels: the two hubs with their channel names, and the heel-strike detectors, each reading one [hub, channel] pair.</div></div><div class="shotfig" id="screen-s2-2-2" style="width:100%"><table class="shotpair"><tr><td style="width:55.0%"><img src="images/screens/S2.2-2a.png" alt="Motion Planner and Profile panels (HIL)"><div class="sub">(a) Motion Planners and Profiles</div></td><td style="width:45.0%"><img src="images/screens/S2.2-2b.png" alt="Motion Planner and Profile panels (HIL)"><div class="sub">(b) cost function of the profile</div></td></tr></table><div class="cap"><b>Screenshot S2.2-2.</b> (a) Motion Planners and Profiles panels with a HIL profile (optimizer OPT_CMA_ES, one row per optimized dimension); (b) the cost-function block of the same profile.</div></div>
+<nav class="pager"><a class="prev" href="running.html"><small>← Previous</small>Running the stack</a><a class="next" href="gui.html"><small>Next →</small>PASE GUI</a></nav>
+</article></main>
+<aside class="toc"><h6>On this page</h6><div class="toc-links"></div></aside>
+</div><div class="search-overlay" role="dialog" aria-label="Search"><div class="search-panel"><input type="search" placeholder="Search the ExoStack documentation…" aria-label="Search"><div class="search-results"></div></div></div><script src="assets/js/search-index.js"></script><script src="assets/js/main.js"></script></body></html>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Actuate"><g fill="none" stroke="#CEA78D" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 7H13L19 16L14 26H25" />
+        <circle cx="19" cy="16" r="4" fill="#0D1117" />
+        <path d="M4 12V23M2 23H7M25 5A10 10 0 0 1 28 15M25 12L28 15L30 11" />
+      </g></svg>
