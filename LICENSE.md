@@ -1,6 +1,6 @@
 # License
 
-Required notice: Copyright (c) 2025-2026 The ExoStack authors (Human Centred Robotics and Cybernetics Group, CSIR-CMERI, Durgapur, India)
+Required notice: Copyright (c) 2025-2026 CSIR-CMERI, India
 
 The ExoStack documentation in this repository, the website, its text, figures, screenshots and videos, and the user manual,
 is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)**:
